@@ -10,4 +10,17 @@ document.querySelectorAll(".charKey").forEach(function (charKeyBtn) {
       input.value += value;
     });
   });
+
+  document.getElementById("clear").addEventListener("click", function () {
+    input.value = "";
+    resultInput.value = "";
+    input.focus();
+    resultInput.classList.remove("error");
+    
+    const copyButton = document.getElementById("copyToClipboard");
+    if (copyButton.innerText === "Copied!") {
+      copyButton.innerText = "Copy";
+      copyButton.classList.remove("success");
+    }
+  });
   
