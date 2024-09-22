@@ -39,15 +39,19 @@ document.querySelectorAll(".charKey").forEach(function (charKeyBtn) {
   });
 
   function calculate() {
-    resultInput.value = "ERROR";
-    resultInput.classList.add("error");
     try {
       const result = eval(input.value);
-      resultInput.value = result;
+      resultInput.value = result; 
       resultInput.classList.remove("error");
     } catch (e) {
       resultInput.value = "ERROR";
       resultInput.classList.add("error");
+      input.value = ""; 
+
+      setTimeout(() => {
+        resultInput.value = "";
+        resultInput.classList.remove("error");
+      }, 1000);
     }
   }
   
