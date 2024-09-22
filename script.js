@@ -37,4 +37,19 @@ document.querySelectorAll(".charKey").forEach(function (charKeyBtn) {
       calculate();
     }
   });
+
+  function calculate() {
+    resultInput.value = "ERROR";
+    resultInput.classList.add("error");
+    try {
+      const result = eval(input.value);
+      resultInput.value = result;
+      resultInput.classList.remove("error");
+    } catch (e) {
+      resultInput.value = "ERROR";
+      resultInput.classList.add("error");
+    }
+  }
+  
+  document.getElementById("equal").addEventListener("click", calculate);
   
